@@ -1,0 +1,63 @@
+<mat-card>
+
+<mat-card-title>
+    Add Product
+</mat-card-title>
+
+<mat-card-content>
+
+      <form [formGroup]="productForm">
+
+        <mat-form-field class="full-width">
+          <mat-label>Product Name</mat-label>
+          <input matInput placeholder="Enter product name" type="text" formControlName="productName" />
+        </mat-form-field><br>
+
+        <mat-form-field class="full-width">
+            <mat-label>Product Price</mat-label>
+            <input matInput placeholder="Enter product price" type="number" formControlName="productPrice" />
+        </mat-form-field><br>
+
+
+        <mat-slide-toggle formControlName="isStack" class="full-width">
+            Stack status
+        </mat-slide-toggle>
+        
+        <button mat-raised-button type="submit" [disabled]="!productForm.valid" (click)="addProduct()" >SUBMIT</button>
+
+      </form><br>
+
+      <h2>{{ productForm.value | json }} </h2>
+
+</mat-card-content>
+
+</mat-card>
+
+
+
+
+
+
+<!-- <mat-card>
+
+  <mat-card-title>
+      Add Product
+  </mat-card-title>
+
+
+     <mat-card-content>
+
+         <form>
+
+            <mat-form-field>
+
+               <mat-label>Product Name</mat-label>
+                <input matInput placeholder="Enter product name"/>
+            </mat-form-field>
+
+         </form>
+
+     </mat-card-content>
+
+
+</mat-card> -->

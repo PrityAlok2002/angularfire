@@ -1,0 +1,18 @@
+<div fxLayout="row">
+<h1>PRODUCT LIST</h1>
+       <mat-card *ngFor="let product of products">
+
+          <mat-card-title>{{ product.payload.doc.data().productName }} </mat-card-title>
+
+
+            <mat-card-content>
+               <p>{{product.payload.doc.data().productPrice}}</p>
+               <!-- <p>{{product.payload.doc.data().isStack}}</p> -->
+            <mat-checkbox [checked]="product.payload.doc.data().isStack" >Stack</mat-checkbox>
+
+           </mat-card-content> 
+           
+       </mat-card> 
+    
+
+</div>
