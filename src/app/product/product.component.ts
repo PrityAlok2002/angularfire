@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
   );
 
   
-  constructor(private ProductService : ProductService) { }
+  constructor(public ProductService : ProductService) { }
 
   ngOnInit(): void {
   }
@@ -27,10 +27,21 @@ export class ProductComponent implements OnInit {
      var data = this.productForm.value;
 
      this.ProductService.createProduct(data).then((res)=>{
-       console.log("Added in firestore");
        
-     }
-     )
+       console.log("Added in firestore"+res);
+       console.log(res)
+
+       this.productForm = new FormGroup(
+        {
+          productName : new FormControl(""),
+          productPrice : new FormControl(""),
+          isStack : new FormControl(false)
+        }    
+     );
+       
+      })
+    
+     
    }
 
 }

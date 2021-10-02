@@ -9,11 +9,13 @@ import { ProductService } from '../shared/product.service';
 export class ProductListComponent implements OnInit {
 
   products : any;
-
-  constructor(private productService : ProductService) { }
+  
+  constructor(public productService : ProductService) { }
 
   ngOnInit(): void {
     this.getAllProducts();
+
+    
   }
 
 getAllProducts()
@@ -22,6 +24,11 @@ getAllProducts()
   this.productService.getProductList().subscribe((res=>{
     this.products = res;
   }))
+
+  
+
+  
+
 }
 
 

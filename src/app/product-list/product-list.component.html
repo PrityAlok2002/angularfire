@@ -7,8 +7,14 @@
 
             <mat-card-content>
                <p>{{product.payload.doc.data().productPrice}}</p>
-               <!-- <p>{{product.payload.doc.data().isStack}}</p> -->
-            <mat-checkbox [checked]="product.payload.doc.data().isStack" >Stack</mat-checkbox>
+               
+            <mat-checkbox [checked]="product.payload.doc.data().isStack" >Stack</mat-checkbox><br><br>
+
+            <button class="btn btn-outline-info" (click)="productService.updateProduct(product) ">Edit</button>
+
+
+            
+            <button class="btn btn-outline-danger" (click)="productService.deleteProduct(product)" >Delete</button>
 
            </mat-card-content> 
            
