@@ -1,0 +1,27 @@
+<div *ngIf="!isSignedIn">
+
+<br>  
+<h3>******REGISTER YOURSELF******</h3><br>
+<form>
+    <div class="row">
+      <div class="col">
+        <label>First Name</label>
+        <input type="text" class="form-control" placeholder="First name">
+      </div>
+      <div class="col">
+        <label>Last Name</label>
+        <input type="text" class="form-control" placeholder="Last name">
+      </div>
+    </div><br>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="text" #emailSignup class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div><br>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="text" #passwordSignup class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div><br>
+    <button type="submit" class="btn btn-primary" (click)="onSignup(emailSignup.value,passwordSignup.value) ">SIGN UP</button>
+  </form>
+</div>

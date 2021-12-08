@@ -23,6 +23,7 @@ updateProduct(product:any){
 }
 
 
+
 deleteProduct(product:any){
   this.angularfire.collection("product").doc(product.payload.doc.id).delete();
 }
@@ -32,5 +33,11 @@ deleteProduct(product:any){
 getProductList(){
   return this.angularfire.collection("product").snapshotChanges();
 }
+
+
+getProductByID(id:any){
+  return this.angularfire.collection("product").doc(id).update;
+}
+
 
 }

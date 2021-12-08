@@ -11,13 +11,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { FirebaseService } from './shared/firebase.service';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LogoutComponent } from './logout/logout.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    SignInComponent,
+    SignUpComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,7 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.config)
   
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

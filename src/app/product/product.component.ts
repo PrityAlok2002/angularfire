@@ -11,9 +11,13 @@ export class ProductComponent implements OnInit {
 
   productForm = new FormGroup(
      {
-       productName : new FormControl("",[Validators.required]),
-       productPrice : new FormControl("",[Validators.required]),
+      //  productName : new FormControl("@",[Validators.email]),
+      // productName : new FormControl("",[Validators.required]),
+
+       productName : new FormControl("",[Validators.required,Validators.pattern('^[a-zA-Z0-9!@#$%^&*()+]+$'),Validators.maxLength(5)]),
+       productPrice : new FormControl("",[Validators.required,Validators.min(2)]),
        isStack : new FormControl(false,[Validators.required])
+
      }    
   );
 
@@ -21,6 +25,7 @@ export class ProductComponent implements OnInit {
   constructor(public ProductService : ProductService) { }
 
   ngOnInit(): void {
+    
   }
 
    addProduct(){
@@ -30,18 +35,18 @@ export class ProductComponent implements OnInit {
        
        console.log("Added in firestore"+res);
        console.log(res)
-
-       this.productForm = new FormGroup(
-        {
-          productName : new FormControl(""),
-          productPrice : new FormControl(""),
-          isStack : new FormControl(false)
-        }    
-     );
        
+
+    this.productForm = new FormGroup(
+      {
+        productName : new FormControl("",[Validators.required,Validators.pattern('^[a-zA-Z0-9!@#$%^&*()+]+$'),Validators.maxLength(5)]),
+        productPrice : new FormControl("",[Validators.required,Validators.min(2)]),
+        isStack : new FormControl(false,[Validators.required])
+      }    
+   );
+
       })
     
-     
    }
 
 }

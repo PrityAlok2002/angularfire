@@ -1,0 +1,32 @@
+<div *ngIf="!isSignedIn">
+
+<H3>YOU ARE ALREADY A REGISTERED USER, PLEASE LOGIN</H3>  
+<br>
+<form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="text" #email class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div><br>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="text" #password class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div><br>
+    <button type="submit" class="btn btn-primary" (click)="onSignin(email.value,password.value) ">SIGN IN</button>
+  </form>
+  </div>
+
+
+
+  
+
+  <br>
+  <app-logout *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-logout>
+
+
+<!-- <div>
+  <h2>SIGN IN</h2>
+  <input type="text" #email/>
+  <input type="text" #password/>
+  <button (click)="onSignin(email.value,password.value)">SIGN IN</button>
+</div> -->

@@ -7,10 +7,11 @@
 
             <mat-card-content>
                <p>{{product.payload.doc.data().productPrice}}</p>
+               <p>{{product.payload.doc.id}}</p>
                
             <mat-checkbox [checked]="product.payload.doc.data().isStack" >Stack</mat-checkbox><br><br>
 
-            <button class="btn btn-outline-info" (click)="productService.updateProduct(product) ">Edit</button>
+            <button class="btn btn-outline-info" (click)="productService.getProductByID(product.payload.doc.id)">Edit</button>
 
 
             
